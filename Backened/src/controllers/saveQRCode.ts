@@ -37,26 +37,7 @@ export const saveqr = async (req: Request, res: Response) => {
   };
 
 
-export const loadqrcode = async (req: Request, res: Response) => {
 
-      const {userId}=req.query;
-      console.log(userId)
-      // const userId = req.params.userId;
-      // console.log(req.query)
-
-      try {
-        const qrCodes = await QRCodeModel.find({ userId });
-    
-        if (!qrCodes || qrCodes.length === 0) {
-          return res.status(404).json({ message: 'No QR codes found for the provided user ID' });
-        }
-    
-        res.status(200).json(qrCodes);
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error rendering QR codes' });
-      }
-    };
   
 
 
