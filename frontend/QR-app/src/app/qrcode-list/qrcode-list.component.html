@@ -1,0 +1,25 @@
+<div class="qrcode-list">
+    <h2>QR Code List</h2>
+    <table>
+      <thead>
+        <tr>
+          <!-- <th>Id</th> -->
+          <th>QR Code</th>
+          <th>Text</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let qrCode of qrCodes">
+          <td>
+            <img [src]="qrCode.qrCodeData" alt="QR Code">
+          </td>
+          <td>{{ qrCode.text }}</td>
+          <td>
+            <button (click)="editQRCode(qrCode)">Edit</button>
+            <button (click)="deleteQRCode(qrCode._id)">delete</button>   
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

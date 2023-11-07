@@ -1,0 +1,54 @@
+.qr-code-generator {
+    max-width: 400px;
+    margin-top: 200px;
+    margin-left: 300px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .qr-code-generator h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .qr-code-generator form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .qr-code img {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  

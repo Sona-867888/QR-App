@@ -1,0 +1,28 @@
+<!-- <div class="navbar">
+  <ul>
+    <li *ngIf="userIsLoggedIn"><a href="#">Home</a></li>
+    <li *ngIf="userIsLoggedIn"><a href="#">Profile</a></li>
+    <li *ngIf="userIsLoggedIn"><a href="#">Settings</a></li>
+    <li *ngIf="userIsLoggedIn" (click)="logout()"><a href="#">Logout</a></li>
+  </ul> -->
+<!-- </div> -->
+<div class="qr-code-generator">
+  <h2>QR Code Generator</h2>
+  <form (submit)="generateQRCode()">
+    <div class="form-group">
+      <label for="text">Enter Text:</label>
+      <input type="text" id="text" [(ngModel)]="inputText" name="text">
+    </div>
+    <div class="form-group">
+      <button type="button" (click)="generateQRCode()">Generate QR Code</button>
+    </div>
+  </form>
+  <div class="qr-code">
+    <img *ngIf="qrCode" [src]="qrCode" alt="QR Code">
+    <a *ngIf="qrCode" [href]="qrCode" download="qrcode.png">
+      <!-- <button type="button" (click)="downloadQRCode()">Download QR Code</button> -->
+      <button type="button" (click)="saveQRCode()">Save</button>
+    </a>
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+<form [formGroup]="verificationForm">
+    <h1 class="h3-mb-3 fw-normal"></h1>
+    <h2>Verify your Email</h2>
+  
+    <input formControlName="email" type="email" class="form-control" placeholder="email">
+  
+    <button (click)="verifyEmail(verificationForm.get('email')?.value || '')">Verify Email</button>
+
+  </form>
+  
+  
+  
+  
