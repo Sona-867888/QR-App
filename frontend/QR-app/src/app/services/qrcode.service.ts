@@ -12,12 +12,12 @@ export class QrcodeService {
 
   constructor(private http:HttpClient) { }
 
-  saveQRCode(userId: string, text: string): Observable<any> {
+  saveQRCode(userId: string,inputText: string): Observable<any> {
     const requestBody = {
       userId,
-      text,
+      text:inputText,
     };
-    console.log(requestBody)
+    // console.log(requestBody)
     return this.http.post(`${this.apiUrl}/saveqrcode`,requestBody);
   }
 
@@ -26,12 +26,19 @@ export class QrcodeService {
     return this.http.post<{ qrCode: string }>('http://localhost:3000/api/qrcode',{text:inputText})
   }
 
-  getQrCodes(userId:string): Observable<any> {
-   console.log(userId)
-   let query =  new HttpParams().append("userId", userId);
+  getQrCodes(userId:string,inputText:string): Observable<any> {
+//    console.log(userId)
+//    let query =  new HttpParams().append("userId", userId);
   
-    return this.http.get(`${this.apiUrl}/qrcodelist`,{ params: query});
- }
+//     return this.http.get(`${this.apiUrl}/qrcodelist`,{ params: query});
+//  }
+const params = new HttpParams()
+.set('userId', userId)
+.set('text', inputText);
+
+return this.http.get(`${this.apiUrl}/qrcodelist`, { params });
+}
+
 }
 
 

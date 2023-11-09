@@ -10,6 +10,7 @@ export class QrcodeListComponent implements OnInit{
 //  ngOnInit(): void {
 //    throw new Error('Method not implemented.');
 //  }
+inputText: string = '';
 qrCodes: any[] = [];
 user:any;
 userId:any;
@@ -26,9 +27,11 @@ getQrCodes() {
   this.user=localStorage.getItem("user")
   this.user= JSON.parse(this.user)
   this.userId=this.user._id
-  this.qrCodeService.getQrCodes(this.userId).subscribe((response)=>{
+ 
+  this.qrCodeService.getQrCodes(this.userId,this.inputText).subscribe((response)=>{
    console.log(" get qr ",response) 
    this.qrCodes=response
+   this.inputText=response
 
   });
    

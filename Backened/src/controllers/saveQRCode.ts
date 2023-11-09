@@ -8,7 +8,8 @@ import * as QRCode from 'qrcode';
 
 export const saveqr = async (req: Request, res: Response) => {
     
-  const { userId, text } = req.body as { userId: string; text: string };
+  const { userId, text } = req.body 
+  // console.log(text)
 
   try {
  
@@ -24,6 +25,7 @@ export const saveqr = async (req: Request, res: Response) => {
    
     const newQRCode = new QRCodeModel({
       userId,
+      text,
       data: qrCodeDataUrl,
       });
 
@@ -38,13 +40,13 @@ export const saveqr = async (req: Request, res: Response) => {
 
 export const loadqrcode = async (req: Request, res: Response) => {
 
-  const {userId}=req.query;
-  console.log(userId)
+  const {userId,text}=req.query;
+
   // const userId = req.params.userId;
   // console.log(req.query)
 
   try {
-    const qrCodes = await QRCodeModel.find({ userId });
+    const qrCodes = await QRCodeModel.find({ userId ,text});
 
     if (!qrCodes || qrCodes.length === 0) {
       return res.status(404).json({ message: 'No QR codes found for the provided user ID' });
@@ -63,3 +65,4 @@ export const loadqrcode = async (req: Request, res: Response) => {
   
 
 
+// as { userId: string; text: string };

@@ -1,4 +1,5 @@
 import mongoose, { Document, Model, Schema} from 'mongoose';
+import QRCode from 'qrcode'; 
 
 const qrcodeSchema = new mongoose.Schema({
   userId: {
@@ -6,10 +7,14 @@ const qrcodeSchema = new mongoose.Schema({
     ref: 'User', 
     required: true,
   },
+  text: {
+    type: String, // Store the text associated with the QR code
+    required: true,
+  },
   data: {
     type: String,
     required: true,
-  },
+  },  
   createdDate: {
     type: Date,
     default: Date.now,
@@ -18,6 +23,7 @@ const qrcodeSchema = new mongoose.Schema({
 
 interface QRCodeDocument extends Document {
   userId: mongoose.Schema.Types.ObjectId;
+  text: string;
   data: string;
   createdDate: Date;
 }

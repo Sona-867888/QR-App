@@ -1,22 +1,22 @@
 import { Request, Response } from 'express';
 import User from '../models/user'; 
 import { sendVerificationEmail, verificationTokens, generateVerificationToken } from './email'; 
-import * as bcrypt from 'bcrypt';
+// import * as bcrypt from 'bcrypt';
 
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body; 
-
+ 
     const existingUser = await User.findOne({ email });
 
 
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new User({ name, email, password:hashedPassword }); 
+    const newUser = new User({ name, email, password }); 
 
     await newUser.save();
 
