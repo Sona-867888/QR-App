@@ -25,9 +25,11 @@ ngOnInit() {
 getQrCodes() { 
   // console.log(localStorage.getItem('user'))
   this.user=localStorage.getItem("user")
+ 
   this.user= JSON.parse(this.user)
   this.userId=this.user._id
- 
+ console.log(this.userId)
+ console.log(this.inputText)
   this.qrCodeService.getQrCodes(this.userId,this.inputText).subscribe((response)=>{
    console.log(" get qr ",response) 
    this.qrCodes=response
@@ -37,14 +39,20 @@ getQrCodes() {
    
 }  
    
-  editQRCode(qrCode: any) {
-    
+  editQRCode(qrCodeId: string, newText: string) {
+    this.qrCodeService.editQRCode(qrCodeId, newText).subscribe((response) => {
+      console.log('edit qrcode service', response);
+      this.getQrCodes(); 
+    });
   }
 
-  deleteQRCode(id: string) {
- 
+  deleteQRCode(qrCodeId: string) {
+    this.qrCodeService.deleteQRCode(qrCodeId).subscribe((response) => {
+      console.log('delete qrcode service', response);
+      this.getQrCodes(); 
+    });
   }
-}
+  }
 
 
 

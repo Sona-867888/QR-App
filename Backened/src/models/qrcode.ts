@@ -8,7 +8,7 @@ const qrcodeSchema = new mongoose.Schema({
     required: true,
   },
   text: {
-    type: String, // Store the text associated with the QR code
+    type: String, 
     required: true,
   },
   data: {

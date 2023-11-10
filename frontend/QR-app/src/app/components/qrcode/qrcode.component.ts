@@ -46,11 +46,10 @@ export class QrcodeComponent {
   saveQRCode() {
     this.user=localStorage.getItem("user")
     this.user= JSON.parse(this.user)
-    // console.log("Input Text:", this.inputText);
+    console.log("Input Text:", this.inputText);
 
     this.qrCodeService.saveQRCode(this.user._id, this.inputText).subscribe((response) => {   
     console.log("qrcode service",response)  
-      
     });
   }
 }

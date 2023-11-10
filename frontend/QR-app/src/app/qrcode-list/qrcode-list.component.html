@@ -16,7 +16,8 @@
           </td>
           <td>{{ qrCode.text }}</td>
           <td>
-            <button (click)="editQRCode(qrCode)">Edit</button>
+            <button (click)="editQRCode(qrCode._id, qrCode.text)">Edit</button>
+
             <button (click)="deleteQRCode(qrCode._id)">delete</button>   
           </td>
         </tr>
