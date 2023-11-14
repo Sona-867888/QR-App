@@ -43,10 +43,9 @@ export const loadqrcode = async (req: Request, res: Response) => {
   const {userId,text}=req.query;
  
   // const userId = req.params.userId;
-  console.log(req.query)
 
   try {
-    const qrCodes = await QRCodeModel.find({ userId ,text});
+    const qrCodes = await QRCodeModel.find({ userId });
 
     if (!qrCodes || qrCodes.length === 0) {
       return res.status(404).json({ message: 'No QR codes found for the provided user ID' });

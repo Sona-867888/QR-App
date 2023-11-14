@@ -12,7 +12,7 @@
       <tbody>
         <tr *ngFor="let qrCode of qrCodes">
           <td>
-            <img [src]="qrCode.qrCodeData" alt="QR Code">
+            <img [src]="qrCode.data" alt="QR Code">
           </td>
           <td>{{ qrCode.text }}</td>
           <td>

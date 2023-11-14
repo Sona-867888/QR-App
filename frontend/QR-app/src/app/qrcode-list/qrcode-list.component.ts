@@ -30,10 +30,11 @@ getQrCodes() {
   this.userId=this.user._id
  console.log(this.userId)
  console.log(this.inputText)
-  this.qrCodeService.getQrCodes(this.userId,this.inputText).subscribe((response)=>{
-   console.log(" get qr ",response) 
-   this.qrCodes=response
-   this.inputText=response
+  this.qrCodeService.getQrCodes(this.userId,this.inputText).subscribe((res)=>{
+    if(res){
+      this.qrCodes = res;
+      this.inputText= res;
+    }
 
   });
    
