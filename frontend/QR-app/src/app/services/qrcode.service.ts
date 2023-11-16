@@ -40,13 +40,7 @@ const params = new HttpParams()
 return this.http.get(`${this.apiUrl}/qrcodelist`, { params });
 }
 
-editQRCode(qrCodeId: string, newText: string): Observable<any> {
-  const requestBody = {
-    text: newText,
-  };
 
-  return this.http.put(`${this.apiUrl}/editqrcode/${qrCodeId}`, requestBody);
-}
 
 deleteQRCode(qrCodeId: string): Observable<any> {
   return this.http.delete(`${this.apiUrl}/deleteqrcode/${qrCodeId}`);

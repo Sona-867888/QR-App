@@ -59,23 +59,7 @@ export const loadqrcode = async (req: Request, res: Response) => {
 };
 
 
-export const editqrcode= async (req:Request, res:Response) => {
-  const { qrCodeId } = req.params;
-  const { text } = req.body;
 
-  try {
-    const updatedQRCode = await QRCodeModel.findByIdAndUpdate(qrCodeId, { text }, { new: true });
-
-    if (!updatedQRCode) {
-      return res.status(404).json({ message: 'QR code not found' });
-    }
-
-    res.status(200).json(updatedQRCode);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Error updating QR code' });
-  }
-};
 
 export const deleteqrcode= async (req:Request, res:Response) => {
   const  qrCodeId  = req.params.qrCodeId ;

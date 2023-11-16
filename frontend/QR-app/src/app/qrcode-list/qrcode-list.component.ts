@@ -40,12 +40,7 @@ getQrCodes() {
    
 }  
    
-  editQRCode(qrCodeId: string, newText: string) {
-    this.qrCodeService.editQRCode(qrCodeId, newText).subscribe((response) => {
-      console.log('edit qrcode service', response);
-      this.getQrCodes(); 
-    });
-  }
+ 
 
   deleteQRCode(qrCodeId: string) {
     this.qrCodeService.deleteQRCode(qrCodeId).subscribe((response) => {
