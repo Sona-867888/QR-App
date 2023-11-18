@@ -6,7 +6,7 @@ import { registerUser } from '../controllers/register';
 import { loginUser } from '../controllers/login';
 import {  emailverified, verify } from '../controllers/email';
 import { saveqr } from '../controllers/saveQRCode';
-import {loadqrcode,editqrcode,deleteqrcode} from '../controllers/saveQRCode'
+import {loadqrcode,deleteqrcode} from '../controllers/saveQRCode'
 
 
 
@@ -33,7 +33,7 @@ router.post('/qrcode', generateQRCode);
 
 router.get('/qrcodelist', loadqrcode);
 
-router.put('/editqrcode/:qrCodeId', editqrcode)
+
 
 router.delete('/deleteqrcode/:qrCodeId',deleteqrcode)
 
