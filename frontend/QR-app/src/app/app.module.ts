@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
 import { VerificationComponent } from './components/verification/verification.component';
 import { QrcodeListComponent } from './qrcode-list/qrcode-list.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 
 
@@ -24,6 +25,7 @@ import { QrcodeListComponent } from './qrcode-list/qrcode-list.component';
     QrcodeComponent,
     VerificationComponent,
     QrcodeListComponent,
+    UserprofileComponent,
    
    
 

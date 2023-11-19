@@ -27,6 +27,6 @@ export class AuthService {
   }
 
   isUserAuthenticated(): boolean {
-    return this.isAuthenticated;
+    return localStorage.getItem("user")?true:false;
   }
 }

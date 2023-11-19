@@ -10,8 +10,8 @@ export class NavComponent {
   isLoggedIn: boolean = false;
 
   constructor(private router: Router) {
-    const token = localStorage.getItem('token');
-   this.isLoggedIn=!!token
+    const token = localStorage.getItem('user');
+   this.isLoggedIn=token?true:false
   }
 
   logout() {
