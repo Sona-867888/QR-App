@@ -1,1 +1,4 @@
-<p>userprofile works!</p>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" (change)="onselect($event)" />
+    <button (click)="onupload()">Upload</button>
+</form>

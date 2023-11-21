@@ -4,15 +4,31 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 // import {router} from 'routes/routes.ts'
 import router from './routes/user.routes';
+import multer from 'multer';
 
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); 
+  },
+  filename: function (req, file, cb) {
+    cb(null,Date.now() + '-' + file); 
+  }
+});
+
+const upload = multer({ dest: 'uploads/' })
 
 const app = express(); 
+
+
 
 app.use(cors({
   credentials:true,
   // origin:['http://localhost:4200']
 }))
+
+app.use(express.urlencoded({extended:false}));
+
 app.use(cookieParser())
 
 app.use(express.json());
@@ -26,6 +42,16 @@ mongoose.connect('mongodb+srv://srivastavassonali:vhn2grlXLmnsIHrr@cluster0.cgau
   .catch((err) => {
     console.error('Error connecting to MongoDB:', err);
   });
+
+
+  // app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
+  app.post('/upload',upload.single('images'),(req, res) =>{
+    // console.log("upload")
+    console.log(req)
+    // console.log(req.body)  
+ });
 
   const port=process.env.port||3000;
 
